@@ -1,0 +1,7 @@
+{
+  "name": "DriveSelect - Advanced Car Rental",
+  "description": "A premium, high-performance car rental system with parallax effects, real-time booking, and a modern responsive design.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "Car": {
+      "title": "Car",
+      "description": "Available rental cars",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "pricePerDay": { "type": "number" },
+        "image": { "type": "string" },
+        "transmission": { "type": "string" },
+        "fuel": { "type": "string" },
+        "seats": { "type": "number" },
+        "features": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["name", "type", "pricePerDay", "image"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Car rental reservations",
+      "type": "object",
+      "properties": {
+        "carId": { "type": "string" },
+        "userId": { "type": "string" },
+        "startDate": { "type": "string", "format": "date-time" },
+        "endDate": { "type": "string", "format": "date-time" },
+        "totalPrice": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled"] },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" }
+      },
+      "required": ["carId", "userId", "startDate", "endDate", "totalPrice"]
+    },
+    "Testimonial": {
+      "title": "Testimonial",
+      "description": "Customer reviews",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "content": { "type": "string" },
+        "rating": { "type": "number" },
+        "avatar": { "type": "string" }
+      },
+      "required": ["name", "content", "rating"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Contact form submissions",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "message"]
+    }
+  },
+  "firestore": {
+    "cars": {
+      "schema": "Car",
+      "description": "Collection of rental cars"
+    },
+    "bookings": {
+      "schema": "Booking",
+      "description": "Collection of car bookings"
+    },
+    "testimonials": {
+      "schema": "Testimonial",
+      "description": "Collection of customer testimonials"
+    },
+    "messages": {
+      "schema": "Message",
+      "description": "Contact form messages"
+    }
+  }
+}
